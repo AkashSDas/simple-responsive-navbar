@@ -72,6 +72,55 @@ main {
   padding: 1rem 2rem;
 }
 
+.nav-item svg {
+  height: 25px;
+  width: 25px;
+}
+
+.nav-item svg .fa-primary {
+  color: hsl(271, 100%, 51%);
+}
+
+.nav-item svg .fa-secondary {
+  color: hsl(251, 100%, 61%);
+}
+
+/* Bar menu animation */
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 40px;
+}
+
+.bar1,
+.bar3 {
+  background: hsl(271, 100%, 51%);
+}
+
+.bar2 {
+  opacity: 0.6;
+  background: hsl(251, 100%, 61%);
+}
+
+.toggle-menu-icon .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.toggle-menu-icon .bar2 {
+  opacity: 0;
+}
+
+.toggle-menu-icon .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
 @media only screen and (max-width: 600px) {
   .navbar {
     background: transparent;
