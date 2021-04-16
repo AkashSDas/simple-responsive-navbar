@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 24px;
+  font-family: sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.navbar {
+  padding: 1rem 3rem;
+  color: rgb(214, 214, 214);
+  background-color: hsl(0, 0%, 9%);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar .right .nav-item {
+  margin: auto 1rem;
+}
+
+.navbar .right .nav-item:last-of-type {
+  margin-right: unset;
+}
+
+.navbar .left .logo {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.navbar .navbar-nav .nav-item:hover {
+  filter: brightness(1.4);
+}
+
+.navbar .left .nav-item:last-of-type,
+.navbar .left .nav-item:first-of-type {
+  display: none;
+}
+
+.navbar .left {
+  z-index: unset;
+}
+
+main {
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    box-shadow: none;
+    flex-direction: column;
+  }
+
+  .navbar .left {
+    padding: 1.4rem 0;
+    background-color: hsl(0, 0%, 9%);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
+  }
+
+  .navbar .right {
+    padding: 2rem 0;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 9%);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar .right .nav-item,
+  .navbar .left .nav-item {
+    margin: 1rem 2rem;
+  }
+
+  .navbar .left .nav-item:last-of-type,
+  .navbar .left .nav-item:first-of-type {
+    display: unset !important;
+  }
+
+  .navbar .left .nav-item:last-of-type {
+    visibility: hidden !important;
+  }
+
+  .navbar .left {
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar .right {
+    height: 100vh;
+    margin-top: 6.5rem;
+
+    position: fixed;
+    width: 85%;
+
+    transform: translateX(-50rem);
+    transition: all 500ms ease-in-out;
+  }
+
+  .navbar .right .nav-item:hover {
+    border-bottom: 2px dashed rgb(0, 119, 255);
+  }
+
+  .right-nav-slide-in {
+    transform: translateX(0rem) !important;
+  }
+
+  .right-nav-slide-out {
+    transform: translateX(-50rem) !important;
+  }
+
+  .navbar .right .nav-item:last-of-type {
+    margin-right: 2rem;
+  }
+
+  .navbar .right .nav-item::after {
+    content: "";
+    position: relative;
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: yellowgreen;
+    transform: scaleX(0);
+    transform-origin: 0%;
+    transition: transform 500ms ease;
+    top: 2px;
+  }
+
+  .navbar .right .nav-item:hover {
+    border-color: transparent;
+  }
+
+  .navbar .right .nav-item:hover::after {
+    transform: scaleX(1);
+  }
+}

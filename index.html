@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar" onclick="toggle">
+      <ul class="navbar-nav left">
+        <li class="nav-item" onclick="toggleNavbar(event, this)">
+          <a href="#" class="nav-link">🍔</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link logo">Logo</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">🍔</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav right">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">Blog</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">Login</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main onclick="hideNavbarInSmallScreenWhenClickedOnMain(event, this)">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora,
+        provident? Repellendus incidunt tempore, eius qui, earum sunt minima ex
+        tempora magni molestiae cum repellat. Ex cumque enim ipsa! Obcaecati,
+        reiciendis?
+      </p>
+    </main>
+
+    <script defer>
+      const toggleNavbar = (event, element) => {
+        console.log(element);
+        let ul = document.querySelector(".navbar .right");
+
+        if (
+          !(
+            ul.classList.contains("right-nav-slide-out") ||
+            ul.classList.contains("right-nav-slide-in")
+          )
+        ) {
+          ul.classList.add("right-nav-slide-in");
+        } else {
+          if (ul.classList.contains("right-nav-slide-out")) {
+            ul.classList.remove("right-nav-slide-out");
+            ul.classList.add("right-nav-slide-in");
+          } else {
+            ul.classList.remove("right-nav-slide-in");
+            ul.classList.add("right-nav-slide-out");
+          }
+        }
+      };
+
+      // Here the <main> should take the rest of the height (leave space for footer
+      // but then apply this function onclick event on footer), this function is not
+      // applyed on body as when we click on <nav> we indirectly clicking on <body>
+      // and therefore the sate of nav doesn't change (<nav> doesn't slide in)
+      //
+      // This function is used to close the navbar when it is open and you
+      // have clicked somewhere other than the 'hamburger menu' (button to close
+      // navbar)
+      const closeNavbar = (event, element) => {
+        console.log(element);
+        let ul = document.querySelector(".navbar .right");
+
+        if (ul.classList.contains("right-nav-slide-in")) {
+          ul.classList.remove("right-nav-slide-in");
+          ul.classList.add("right-nav-slide-out");
+        }
+      };
+    </script>
+  </body>
+</html>
